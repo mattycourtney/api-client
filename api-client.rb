@@ -15,7 +15,7 @@ special_personas = %w(monica jared gavin jian-yang laurie russ)
 loop do
   # Select a random persona, grabbing one from the 'special' personas if the loop executes within the first 10 seconds of a minute
   persona = Time.now.sec >= 10 ? regular_personas.sample : special_personas.sample 
-  fortune = `/usr/games/fortune fortunes literature`
+  fortune = `/usr/games/fortune -s fortunes`
   SinatraApp.post('/post', {body: {message: fortune, persona: persona}})
   seconds = rand(3..10)
   logger.info "Sleeping for #{seconds} seconds..."
