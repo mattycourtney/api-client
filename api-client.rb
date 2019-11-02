@@ -17,7 +17,7 @@ loop do
   persona = Time.now.sec >= 10 ? regular_personas.sample : special_personas.sample 
   fortune = `/usr/games/fortune fortunes literature`
   SinatraApp.post('/post', {body: {message: fortune, persona: persona}})
-  seconds = rand(1..10)
+  seconds = rand(3..10)
   logger.info "Sleeping for #{seconds} seconds..."
   sleep seconds
 end
